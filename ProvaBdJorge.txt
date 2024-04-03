@@ -1,0 +1,59 @@
+
+    create table filme (
+ path varchar(35);
+ title varchar(35) [primary key];
+ duration int;
+ date_launch date;
+ cast varchar(40);
+ director varchar(35);
+ poster varchar(35);
+ gender varchar(35);
+ )
+
+  create table artist (
+ name text(35) [primary key];
+ date_birth date;
+ date_death date;
+ type boolean;
+ biography varchar(35);
+ movie_famous varchar(35);
+ )
+ 
+ create table directors (
+ name text(35)[primary key];
+ date_birth date;
+ date_death date;
+ type boolean;
+ biography varchar(35);
+ movie_famous varchar(35);
+)
+
+ create table users (
+email text;
+password int; 
+name varchar(35);
+age int;
+preferred_genre varchar(35);
+date_create_profile date;
+last_acess date;
+phone int;
+flat varchar(35)[primary key];
+)
+
+create table subscribers (
+Plan_name text [primary key];
+Plan_price money;
+Recurrence timestamptz;
+Description_the_plan text;
+Allowed_number_logged_in_devices int;
+)
+
+ref: filme.director>director.movie_famous;
+ref: filme.cast>artist.movie_famous;
+ref: users.flat_varchar>subscribers.plan_name;
+ref: users.preferred_genre>filme.title;
+
+  
+
+
+                           
